@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import{StudentsService}from './students.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'firstProject';
+  list;
+  constructor(ss:StudentsService){
+    this.list=ss.getStudents();
+    ss.addStudents({name: 'Anand'});
+  }
+  
 }
